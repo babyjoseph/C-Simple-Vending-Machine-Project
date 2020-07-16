@@ -40,9 +40,7 @@ void buyingMenu(){
   if(money < price){
     std::cout << "\nYou don't have enough money" << std::endl;
     std::cout << "How much would you add? ";
-    try{
     std::cin >> additional;
-    }
     std::cin.ignore();
     money+=additional;
   }
