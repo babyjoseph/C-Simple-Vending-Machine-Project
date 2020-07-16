@@ -37,7 +37,18 @@ void buyingMenu(){
       break;
     }
   }
-  money -= price;
+  if(money < price){
+    std::cout << "\nYou don't have enough money" << std::endl;
+    std::cout << "How much would you add? ";
+    try{
+    std::cin >> additional;
+    }
+    std::cin.ignore();
+    money+=additional;
+  }
+  else{
+    money -= price;
+  }
   std::cout << "Your remaining money: " << money << std::endl;
   price = 0;
   selection = 0;
@@ -46,7 +57,7 @@ void buyMenu(){
   while(true){
     switch(myme){
       case Pause:
-        std::cout << "\nDo you want to buy more? ";
+        std::cout << "\nDo you want to buy? ";
         getline(std::cin, ans);
         if(ans == "y" ||ans == "Y"){
           myme = Yes;
